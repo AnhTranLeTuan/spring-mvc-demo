@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- Enable component scanning -->
+	<context:component-scan base-package="firstPackage" />
+
+	<!-- Conversion, formatting and validation support -->
+	<mvc:annotation-driven/>
+
+	<!-- Define Spring MVC view resolver -->
+	<!-- Add prefix at the beginning of the view name, and suffix at the end of the view name -->
+	<!-- Example: /WEB-INF/view/viewName.jsp -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- This bean is used to override the default error codes. In this case, it is the error code 
+	that will be displayed when the data provided by the user is not the number format 
+	(ex: character format, because data in the text field originally is String type, and will be parsed
+	to other type accordingly). -->
+	<!--  We can find the location of the error code by using the debugging trick that is 
+	printing the BindingResult object from the controller to console. On here, we can see the exact location
+	of the error code, then we will create the perperties file, add the corresponding location and 
+	the cuscom code or message to it, then put it into the below bean. Note that the location of the
+	properties file is very important, so make sure it is placed right. -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="resources/customMessages"/>
+	</bean>
+
+</beans>
+
+
+
+
+
