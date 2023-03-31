@@ -1,7 +1,7 @@
 # Hibernate advanced: Many-to-many Relationship
 
 ## Description
-Experiment with concepts of Hibernate, ORM (Object–relational mapping), and many-to-many mapping. In this project, we can see how:
+Experiment with concepts of Spring MVC. In this project, we can see how:
 * Configure Spring MVC in the XML file (/spring-mvc-demo/webapp/WEB-INF/web.xml)
 * Configure Spring MVC servlet in the XML file (/spring-mvc-demo/webapp/WEB-INF/spring-mvc-demo-servlet.xml)
 * Create controllers (firstPackage/...)
