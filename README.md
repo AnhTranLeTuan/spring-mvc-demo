@@ -1,4 +1,4 @@
-# Hibernate advanced: Many-to-many Relationship
+# Spring MVC
 
 ## Description
 Experiment with concepts of Spring MVC. In this project, we can see how:
